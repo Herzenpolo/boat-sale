@@ -1,24 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Switch, Route } from "react-router-dom";
+import Home from './components/Home/Home.jsx'
+import Exterior from './components/Exterior/Exterior.jsx'
+import Interior from './components/Interior/Interior.jsx'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path = '/' render = {(props) => <Home {...props}/>}/>
+        <Route exact path = '/exterior' render = {(props) => <Exterior {...props}/>}/>
+        <Route exact path = '/interior' render = {(props) => <Interior {...props}/>}/>
+      </Switch>
     </div>
   );
 }
